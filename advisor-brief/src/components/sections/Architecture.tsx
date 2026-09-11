@@ -1,8 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionShell } from "@/components/ui/SectionShell";
 import { layers, layersIntro } from "@/lib/content/layers";
-import { TeacherMockup } from "@/components/mockups/TeacherMockup";
-import { StudentMockup } from "@/components/mockups/StudentMockup";
+import { LiveSessionDemo } from "@/components/mockups/LiveSessionDemo";
 import { TechStackGrid } from "@/components/diagrams/TechStackGrid";
 import { DataFlowDiagram } from "@/components/diagrams/DataFlowDiagram";
 
@@ -50,37 +49,28 @@ export function Architecture() {
         ))}
       </div>
 
-      {/* What this actually looks like — real UI, not a diagram of an idea */}
+      {/* What this actually looks like — real UI, stepped through live, not a diagram of an idea */}
       <div className="mt-16">
         <Reveal>
-          <h3 className="font-display text-2xl font-semibold">What this actually looks like</h3>
+          <h3 className="font-display text-2xl font-semibold">
+            What a live session actually looks like — in sync, in real time
+          </h3>
         </Reveal>
         <Reveal delayMs={60}>
           <p className="mt-2 max-w-2xl text-ink-soft/85">
-            Not a mockup of an idea — the actual screens. The pin control on
-            the left is the same mechanism as the share button on the right:
-            one interface, two seats, a single Protected Field between them.
+            Not a mockup of an idea — the actual screens, stepped through in
+            the order a real Semana 2 session runs. Walk it forward: the
+            teacher&rsquo;s screen and the student&rsquo;s screen change
+            together, at the same instant, because one is driving the other
+            live — not because two designers agreed on a layout.
           </p>
         </Reveal>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-          <Reveal delayMs={100}>
-            <div>
-              <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-                Teacher · projected display
-              </div>
-              <TeacherMockup />
-            </div>
-          </Reveal>
-          <Reveal delayMs={160}>
-            <div>
-              <div className="mb-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted lg:text-left">
-                Student · personal device — click a state
-              </div>
-              <StudentMockup />
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delayMs={100}>
+          <div className="mt-8">
+            <LiveSessionDemo />
+          </div>
+        </Reveal>
       </div>
 
       {/* The technology layer, made concrete */}
