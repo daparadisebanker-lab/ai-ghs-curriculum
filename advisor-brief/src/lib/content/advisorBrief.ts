@@ -51,6 +51,13 @@ export const closingNote = {
 export const coverThesis =
   "The AI curriculum, the platform it runs on, and the calls only you can make.";
 
+export const namingLegend = [
+  { term: "Paradise Classroom", def: "the live platform — teacher and student screens, in real time." },
+  { term: "Scholar OS", def: "the curriculum's design system — the decks, slides, and SVG artifacts." },
+  { term: "The AI curriculum", def: "what's actually taught — Bimestre 2, Semanas 1–9." },
+  { term: "The pilot program", def: "Semana 2 specifically — the first unit built with Scholar OS." },
+];
+
 export const documentMeta = {
   preparedFor: "The Senior Academic Advisor",
   owner: "Muaaz, CEO, Paradise Education Group",

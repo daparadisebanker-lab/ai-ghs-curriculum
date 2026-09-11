@@ -76,6 +76,14 @@ export function Nav() {
               <span className="block h-px w-4 bg-terra/50 group-hover:w-6" />
             </a>
           </li>
+          <li className="mt-1">
+            <a href="/scholar-os" className="group flex items-center gap-2.5">
+              <span className="font-mono text-[11px] tracking-wide text-ink-soft/70 opacity-80 transition-opacity group-hover:opacity-100">
+                Scholar OS
+              </span>
+              <span className="block h-px w-4 bg-ink/30 group-hover:w-6 group-hover:bg-ink/60" />
+            </a>
+          </li>
         </ol>
       </nav>
 
@@ -122,6 +130,16 @@ export function Nav() {
               >
                 <span className="font-mono text-xs opacity-70">↗</span>
                 Read the Curriculum
+              </a>
+            </li>
+            <li>
+              <a
+                href="/scholar-os"
+                onClick={() => setOpen(false)}
+                className="flex items-baseline gap-3 py-1.5 font-sans text-sm"
+              >
+                <span className="font-mono text-xs opacity-50">→</span>
+                Scholar OS
               </a>
             </li>
           </ol>

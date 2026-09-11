@@ -210,6 +210,11 @@ svg { display: block; }
 }
 .sos-chrome > * { pointer-events: auto; }
 .sos-chrome-left { display: flex; align-items: center; gap: 14px; }
+.sos-back-link {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(244,241,235,0.6); text-decoration: none; transition: color 150ms;
+}
+.sos-back-link:hover { color: rgba(244,241,235,0.95); }
 .sos-progress { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(244,241,235,0.75); }
 .sos-progress-bar { width: 140px; height: 2px; background: rgba(244,241,235,0.2); position: relative; }
 .sos-progress-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); transition: width 260ms var(--ease-out); }

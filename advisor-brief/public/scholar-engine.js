@@ -22,10 +22,12 @@ function sosBuild(SLIDES) {
   });
 
   /* ---- chrome --------------------------------------------------------- */
+  var isEmbedded = window.self !== window.top;
   var chrome = document.createElement('div');
   chrome.className = 'sos-chrome';
   chrome.innerHTML =
     '<div class="sos-chrome-left">' +
+      (isEmbedded ? '' : '<a class="sos-back-link" href="/scholar-os">← Scholar OS</a>') +
       '<span class="sos-progress" id="sos-progress-label">01 / ' + String(SLIDES.length).padStart(2, '0') + '</span>' +
       '<span class="sos-progress-bar"><span class="sos-progress-fill" id="sos-progress-fill" style="width:0%"></span></span>' +
     '</div>' +

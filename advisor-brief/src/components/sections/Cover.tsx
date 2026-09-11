@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { documentMeta } from "@/lib/content/advisorBrief";
+import { documentMeta, namingLegend } from "@/lib/content/advisorBrief";
 
 export function Cover() {
   return (
@@ -36,6 +36,17 @@ export function Cover() {
             runs it live, and the document a future teacher or hire opens
             next.
           </p>
+        </Reveal>
+
+        <Reveal delayMs={280}>
+          <dl className="mt-8 grid max-w-2xl gap-x-8 gap-y-2 sm:grid-cols-2">
+            {namingLegend.map((item) => (
+              <div key={item.term} className="flex gap-2 text-xs leading-relaxed">
+                <dt className="shrink-0 font-mono font-medium text-ink">{item.term} —</dt>
+                <dd className="text-muted">{item.def}</dd>
+              </div>
+            ))}
+          </dl>
         </Reveal>
       </div>
 
