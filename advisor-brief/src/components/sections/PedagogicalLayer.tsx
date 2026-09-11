@@ -57,14 +57,22 @@ export function PedagogicalLayer() {
             </span>
             <span className="block font-display text-xl italic">{weekTwoTopic}</span>
           </div>
-          <a
-            href="/curriculum.html#semana2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-terra underline decoration-terra decoration-2 underline-offset-4"
-          >
-            Ver el guion completo →
-          </a>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <a
+              href="/curriculum.html#semana2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-terra underline decoration-terra decoration-2 underline-offset-4"
+            >
+              Ver el guion completo →
+            </a>
+            <a
+              href="/scholar-os"
+              className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-ink-soft underline decoration-ink-soft/40 decoration-2 underline-offset-4 hover:text-terra hover:decoration-terra"
+            >
+              How Scholar OS decks get built — the pilot program →
+            </a>
+          </div>
         </div>
       </Reveal>
 

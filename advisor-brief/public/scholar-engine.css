@@ -1,0 +1,246 @@
+/* ============================================================
+   SCHOLAR OS ENGINE — presentation & visual identity system
+   Paradise Education Group · governs projected AI-curriculum decks.
+   Scholar OS ≠ Paradise Classroom: two distinct design languages.
+   ============================================================ */
+
+/* ---- 1. TOKENS ------------------------------------------------ */
+:root {
+  --page:    #F4F1EB;
+  --surface: #FDFBF7;
+  --ink:     #1C1C1A;
+  --muted:   #6B6560;
+  --rule:    #D8D3C8;
+
+  /* accent is overridden per-cohort, this is a neutral fallback */
+  --accent:      #2E5B8A;
+  --accent-soft: #C8D8EC;
+
+  --mg-x: 72px;
+  --mg-y: 56px;
+  --gap:  24px;
+
+  --t-fast:   180ms;
+  --t-medium: 260ms;
+  --t-slow:   420ms;
+  --t-route:  900ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 900px) {
+  :root { --mg-x: 28px; --mg-y: 32px; --gap: 16px; }
+}
+
+/* ---- 2. RESET --------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+svg { display: block; }
+
+/* ---- 3. TYPE CLASSES -------------------------------------------- */
+.sos-display  { font-family: 'Instrument Serif', serif; font-size: clamp(40px, 6vw, 88px); line-height: 1.02; font-weight: 400; letter-spacing: -0.01em; }
+.sos-display em { font-style: italic; color: var(--accent); }
+.sos-heading  { font-family: 'Instrument Serif', serif; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.08; font-weight: 400; }
+.sos-subhead  { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.3vw, 19px); font-weight: 500; color: var(--muted); }
+.sos-body     { font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.15vw, 17px); line-height: 1.65; font-weight: 300; color: var(--ink); }
+.sos-caption  { font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.55; color: var(--muted); font-weight: 400; }
+.sos-meta     { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.sos-kicker   { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.sos-exhibit  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.sos-rule       { display: block; height: 1px; background: var(--rule); border: none; }
+.sos-rule-accent{ display: block; height: 2px; background: var(--accent); border: none; }
+
+/* ---- 4. SLIDE SHELL ---------------------------------------------- */
+.sos-slide {
+  position: absolute; inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: var(--mg-y) var(--mg-x) calc(var(--mg-y) + 64px);
+  background: var(--page);
+  color: var(--ink);
+  overflow-y: auto;
+}
+.sos-slide.is-active { display: flex; }
+.sos-slide.is-dark { background: var(--ink); color: var(--page); }
+.sos-slide.is-dark .sos-body { color: rgba(244,241,235,0.82); }
+.sos-slide.is-dark .sos-caption { color: rgba(244,241,235,0.5); }
+
+/* ---- 5. LAYOUT ARCHETYPES ------------------------------------------ */
+
+/* Monument — cover / conclusion: title dominant, artifact panel right */
+.layout-monument { justify-content: space-between; }
+.monument-top-rule, .monument-bottom-rule { height: 1px; background: var(--rule); width: 100%; }
+.sos-slide.is-dark .monument-top-rule, .sos-slide.is-dark .monument-bottom-rule { background: rgba(244,241,235,0.15); }
+.monument-exhibit { margin-top: 18px; }
+.monument-content { display: grid; grid-template-columns: 56% 42%; gap: var(--gap); align-items: center; flex: 1; }
+.monument-art { grid-column: 2; justify-self: end; width: 100%; max-width: 420px; }
+@media (max-width: 900px) { .monument-content { grid-template-columns: 1fr; } .monument-art { grid-column: 1; justify-self: start; max-width: 280px; } }
+.cover-sub { margin-top: 18px; max-width: 34ch; }
+.cover-meta-row { margin-top: 28px; display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* Reading Plate — quote / inquiry: centered, generous whitespace */
+.layout-reading-plate { justify-content: center; align-items: center; text-align: center; }
+.plate-inner { max-width: 780px; margin: 0 auto; }
+.plate-kicker { margin-bottom: 22px; }
+.plate-quote { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 3.4vw, 46px); line-height: 1.25; }
+.plate-cite { margin-top: 22px; }
+
+/* Deep Label — artifact slides: 58% field / 42% label stack */
+.layout-deep-label { flex-direction: row; align-items: stretch; gap: var(--gap); }
+.dl-field { flex: 0 0 58%; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--rule); padding-right: var(--gap); }
+.sos-slide.is-dark .dl-field { border-color: rgba(244,241,235,0.15); }
+.dl-field svg { width: 100%; height: auto; max-height: 70vh; }
+.dl-labels { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+@media (max-width: 900px) { .layout-deep-label { flex-direction: column; } .dl-field { border-right: none; border-bottom: 1px solid var(--rule); padding-right: 0; padding-bottom: 18px; flex: none; } }
+
+/* Split Narrative — explanation + visual: 46/54 */
+.layout-split { flex-direction: row; align-items: center; gap: var(--gap); }
+.split-text { flex: 0 0 46%; }
+.split-visual { flex: 1; border-left: 1px solid var(--rule); padding-left: var(--gap); display: flex; align-items: center; justify-content: center; }
+.split-visual svg { width: 100%; height: auto; }
+@media (max-width: 900px) { .layout-split { flex-direction: column; } .split-visual { border-left: none; padding-left: 0; } }
+
+/* Timeline Spine — genealogy */
+.layout-timeline { justify-content: center; }
+.timeline-wrap { flex: 1; display: flex; align-items: center; }
+.timeline-wrap svg { width: 100%; height: auto; }
+.tl-node-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+
+/* Comparison Wall — mirrored data table */
+.layout-comparison { justify-content: center; }
+.cw-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.cw-table th { text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding: 10px 16px; border-bottom: 2px solid var(--accent); }
+.cw-table td { padding: 14px 16px; font-size: 14px; line-height: 1.55; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.cw-table tr:last-child td { border-bottom: none; }
+
+/* Lesson Activity — dark, split anchor + cards */
+.layout-activity { flex-direction: row; align-items: flex-start; gap: 40px; }
+.activity-anchor { flex: 0 0 34%; }
+.activity-steps { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.activity-step { border-left: 2px solid var(--accent); padding: 4px 0 4px 16px; }
+@media (max-width: 900px) { .layout-activity { flex-direction: column; } }
+
+/* Prompt Lab — dark, full-width card deck */
+.layout-prompt-lab { justify-content: center; }
+.pl-deck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+@media (max-width: 900px) { .pl-deck { grid-template-columns: 1fr; } }
+.pl-card { background: rgba(244,241,235,0.04); border: 1px solid rgba(244,241,235,0.14); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.pl-card-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); }
+.pl-card-txt { font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: rgba(244,241,235,0.9); }
+
+/* Provocation — dark, centered claim (Leaders only) */
+.layout-provocation { justify-content: center; align-items: center; text-align: center; }
+.prov-claim { font-family: 'Instrument Serif', serif; font-size: clamp(30px, 4.6vw, 60px); line-height: 1.12; max-width: 900px; }
+.prov-options { margin-top: 34px; display: flex; gap: 20px; justify-content: center; }
+.prov-opt { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(244,241,235,0.3); padding: 10px 22px; }
+
+/* Conclusion — centered, claim dominant, proof quiet */
+.layout-conclusion { justify-content: center; align-items: center; text-align: center; }
+.concl-claim { max-width: 820px; margin: 0 auto; }
+.concl-proof { margin-top: 26px; }
+
+/* Analysis — dark, task + questions */
+.layout-analysis { justify-content: center; }
+.an-task { max-width: 760px; }
+.an-questions { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+.an-q { display: flex; gap: 12px; }
+.an-q-num { font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-size: 13px; }
+
+/* Limits Grid — 2x2 holds/breaks */
+.layout-limits { justify-content: center; }
+.limits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin-top: 20px; }
+.limits-cell { background: var(--surface); padding: 22px; }
+.limits-cell.is-break { background: rgba(122,32,32,0.04); }
+.limits-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+@media (max-width: 900px) { .limits-grid { grid-template-columns: 1fr; } }
+
+/* ---- 6. REVEAL ANIMATION SYSTEM ------------------------------------ */
+.rv-plate, .rv-title, .rv-label, .rv-meta, .rv-step { opacity: 0; }
+.rv-plate { clip-path: inset(0 0 100% 0); transition: clip-path var(--t-slow) var(--ease-out), opacity var(--t-slow) linear; }
+.rv-title { transform: translateY(8px); transition: transform var(--t-medium) var(--ease-out), opacity var(--t-medium) linear; }
+.rv-label { transform: translateY(4px); transition: transform var(--t-fast) var(--ease-out), opacity var(--t-fast) linear; }
+.rv-meta  { transition: opacity var(--t-fast) linear; }
+.rv-step  { transform: translateY(8px); transition: transform var(--t-fast) var(--ease-out), opacity var(--t-fast) linear; }
+
+.sos-slide.is-active .rv-plate,
+.sos-slide.is-active .rv-title,
+.sos-slide.is-active .rv-label,
+.sos-slide.is-active .rv-meta,
+.sos-slide.is-active .rv-step {
+  opacity: 1; transform: none; clip-path: inset(0 0 0% 0);
+}
+
+.d0 { transition-delay: 0ms; }
+.d1 { transition-delay: 48ms; }
+.d2 { transition-delay: 96ms; }
+.d3 { transition-delay: 144ms; }
+.d4 { transition-delay: 192ms; }
+.d5 { transition-delay: 240ms; }
+.d6 { transition-delay: 288ms; }
+.d7 { transition-delay: 336ms; }
+.tn1 { transition-delay: 48ms; }
+.tn2 { transition-delay: 96ms; }
+.tn3 { transition-delay: 144ms; }
+.tn4 { transition-delay: 192ms; }
+.tn5 { transition-delay: 240ms; }
+
+.rv-rule-draw { stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset var(--t-route) var(--ease-out); }
+.sos-slide.is-active .rv-rule-draw { stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-plate, .rv-title, .rv-label, .rv-meta, .rv-step, .rv-rule-draw {
+    transition: opacity 120ms linear !important;
+    transform: none !important; clip-path: none !important; stroke-dashoffset: 0 !important;
+  }
+}
+
+/* ---- 7. CHROME: nav bar, progress, mute, fullscreen ----------------- */
+.sos-chrome {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px var(--mg-x);
+  background: linear-gradient(to top, rgba(28,28,26,0.85), transparent);
+  pointer-events: none;
+}
+.sos-chrome > * { pointer-events: auto; }
+.sos-chrome-left { display: flex; align-items: center; gap: 14px; }
+.sos-progress { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(244,241,235,0.75); }
+.sos-progress-bar { width: 140px; height: 2px; background: rgba(244,241,235,0.2); position: relative; }
+.sos-progress-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); transition: width 260ms var(--ease-out); }
+.sos-chrome-right { display: flex; align-items: center; gap: 10px; }
+.sos-btn {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(244,241,235,0.85); background: rgba(244,241,235,0.08); border: 1px solid rgba(244,241,235,0.2);
+  padding: 7px 13px; cursor: pointer; transition: background 150ms, border-color 150ms;
+}
+.sos-btn:hover { background: rgba(244,241,235,0.16); border-color: rgba(244,241,235,0.4); }
+.sos-btn[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+
+/* ---- 8. GALLERY --------------------------------------------------- */
+.sos-gallery {
+  position: fixed; inset: 0; z-index: 60; display: none;
+  background: rgba(20,19,17,0.97);
+  padding: 64px var(--mg-x);
+  overflow-y: auto;
+}
+.sos-gallery.is-open { display: block; }
+.sos-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.sos-gallery-thumb {
+  aspect-ratio: 16/10; background: var(--page); border: 1px solid rgba(244,241,235,0.15); cursor: pointer;
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; position: relative; overflow: hidden;
+  transition: border-color 150ms;
+}
+.sos-gallery-thumb:hover { border-color: var(--accent); }
+.sos-gallery-thumb-num { position: absolute; top: 10px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); }
+.sos-gallery-thumb-title { font-family: 'Instrument Serif', serif; font-size: 16px; color: var(--ink); }
+
+/* ---- 9. PRESENTATION SHELL ------------------------------------------ */
+.sos-stage { position: fixed; inset: 0; overflow: hidden; }
+
+/* mute icon states purely CSS-driven via aria-pressed, no imagery needed */

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Semana 2 · Leaders — Scholar OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/scholar-engine.css" />
+<style>
+  :root { --accent: #7A2020; --accent-soft: #DDB8B8; }
+  html, body { background: #140d0d; }
+</style>
+</head>
+<body>
+
+<div class="sos-stage" id="sos-stage"></div>
+
+<script>
+const SLIDES = [
+
+/* 1 — COVER — Monument */
+{
+  layout: "layout-monument", dark: false, title: "La genealogía del aprendizaje",
+  html: `
+    <div class="monument-top-rule"></div>
+    <div class="monument-exhibit sos-exhibit rv-meta d1">SEMANA 2 · BIMESTRE 2</div>
+    <div class="monument-content">
+      <div>
+        <div class="sos-kicker rv-label d2">LEADERS · STAGE 10–11</div>
+        <div class="sos-display rv-title d3">La genealogía<br/>del <em>aprendizaje</em></div>
+        <p class="sos-body cover-sub rv-label d4">De McCulloch-Pitts (1943) a los modelos de hoy — y qué tan lejos llega realmente el paralelo con el cerebro.</p>
+        <div class="cover-meta-row rv-meta d5">
+          <span class="sos-meta">Paradise GHS</span><span class="sos-meta">Currículo de IA</span><span class="sos-meta">Semana 2</span>
+        </div>
+      </div>
+      <div class="monument-art rv-plate d2">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <g id="paper"></g>
+          <g id="artifact" fill="none" stroke="#D8D3C8" stroke-width="1.25">
+            <line x1="60" y1="120" x2="200" y2="90"/><line x1="60" y1="120" x2="200" y2="210"/>
+            <line x1="200" y1="90" x2="340" y2="150" stroke="#7A2020" stroke-width="1.5"/>
+            <line x1="200" y1="210" x2="340" y2="150"/><line x1="200" y1="210" x2="340" y2="300"/>
+            <line x1="200" y1="90" x2="340" y2="300" stroke-dasharray="2,3"/>
+          </g>
+          <g id="artifact-nodes" fill="none" stroke="#1C1C1A" stroke-width="1.25">
+            <circle cx="60" cy="120" r="7"/><circle cx="200" cy="90" r="7"/><circle cx="200" cy="210" r="7"/>
+            <circle cx="340" cy="150" r="7" stroke="#7A2020"/><circle cx="340" cy="300" r="7"/>
+          </g>
+          <g id="metadata"><text x="30" y="380" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#6B6560">GRAFO DE CONOCIMIENTO — ENGRAVING</text></g>
+        </svg>
+      </div>
+    </div>
+    <div class="monument-bottom-rule"></div>
+  `
+},
+
+/* 2 — PROVOCATION — dark, full-bleed */
+{
+  layout: "layout-provocation", dark: true, title: "La IA aprende exactamente igual",
+  html: `
+    <div class="sos-kicker rv-label d1">PROVOCACIÓN</div>
+    <div class="prov-claim rv-title d2">&ldquo;La IA aprende exactamente igual que un cerebro humano.&rdquo;</div>
+    <div class="prov-options rv-step tn3">
+      <span class="prov-opt">De acuerdo</span><span class="prov-opt">En desacuerdo</span>
+    </div>
+  `
+},
+
+/* 3 — QUOTE — Reading Plate — Hebb close-read */
+{
+  layout: "layout-reading-plate", dark: false, title: "Cells that fire together, wire together", hasQuote: true,
+  html: `
+    <div class="plate-inner">
+      <div class="sos-kicker plate-kicker rv-label d1">LA PIZARRA, EN SILENCIO UN MINUTO</div>
+      <div class="plate-quote rv-title d2">&ldquo;Cells that fire together, wire together.&rdquo;</div>
+      <div class="sos-meta plate-cite rv-meta d4">DONALD HEBB, 1949</div>
+    </div>
+  `
+},
+
+/* 4 — ARTIFACT — Deep Label — LTP molecular Lab Plate */
+{
+  layout: "layout-deep-label", dark: false, title: "LTP — potenciación a largo plazo", hasArtifact: true,
+  html: `
+    <div class="dl-field rv-plate d2">
+      <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="paper"></g>
+        <g id="metadata"><text x="20" y="24" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#6B6560">SVG_LTP_PLATE — LAB PLATE, MOLECULAR</text></g>
+        <g id="artifact" stroke="#1C1C1A" stroke-width="1.5" fill="none">
+          <rect x="40" y="60" width="480" height="70" fill="none" stroke="#D8D3C8"/>
+          <text x="280" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">TERMINAL PRESINÁPTICO</text>
+          <circle cx="150" cy="150" r="9" fill="#D8D3C8" stroke="none"/><circle cx="200" cy="145" r="9" fill="#D8D3C8" stroke="none"/><circle cx="250" cy="152" r="9" fill="#D8D3C8" stroke="none"/>
+          <line x1="150" y1="159" x2="150" y2="185" stroke-dasharray="2,2"/><line x1="200" y1="154" x2="200" y2="185" stroke-dasharray="2,2"/>
+          <rect x="40" y="185" width="480" height="45" fill="none" stroke="#7A2020" stroke-dasharray="4,3"/>
+          <text x="280" y="212" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#7A2020">ESPACIO SINÁPTICO</text>
+          <rect x="140" y="232" width="480" height="70" fill="none" stroke="#D8D3C8" transform="translate(-100,0)"/>
+          <text x="280" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">MEMBRANA POSTSINÁPTICA</text>
+          <rect x="160" y="232" width="16" height="14" fill="#7A2020" stroke="none"/><rect x="200" y="232" width="16" height="14" fill="#7A2020" stroke="none"/><rect x="240" y="232" width="16" height="14" fill="#7A2020" stroke="none"/><rect x="280" y="232" width="16" height="14" fill="#7A2020" stroke="none"/><rect x="320" y="232" width="16" height="14" fill="#7A2020" stroke="none"/>
+          <text x="60" y="330" font-family="IBM Plex Mono" font-size="8" fill="#6B6560">RECEPTORES NMDA / AMPA — MÁS RECEPTORES, UMBRAL MENOR</text>
+        </g>
+      </svg>
+    </div>
+    <div class="dl-labels">
+      <div class="sos-exhibit rv-meta d1">MECANISMO MOLECULAR</div>
+      <div class="sos-heading rv-title d2">No metáfora —<br/>fenómeno real</div>
+      <p class="sos-body rv-label d3">Los receptores NMDA actúan como detectores de coincidencia: solo se activan cuando pre y postsinapsis se activan juntas. Eric Kandel lo estudió en Aplysia californica — Nobel de Medicina, 2000.</p>
+    </div>
+  `
+},
+
+/* 5 — TIMELINE — genealogy, rule-draw */
+{
+  layout: "layout-timeline", dark: false, title: "1943 → hoy", hasTimeline: true,
+  html: `
+    <div class="sos-kicker rv-label d1">LA GENEALOGÍA INTELECTUAL</div>
+    <div class="timeline-wrap">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+        <g id="metadata"></g>
+        <path d="M60,150 L840,150" stroke="#D8D3C8" stroke-width="1.5" fill="none" class="rv-rule-draw"/>
+        <g id="artifact" fill="#7A2020">
+          <circle cx="60" cy="150" r="7"/><circle cx="270" cy="150" r="7"/><circle cx="480" cy="150" r="7"/><circle cx="690" cy="150" r="7"/><circle cx="840" cy="150" r="7"/>
+        </g>
+        <g id="annotation" font-family="IBM Plex Mono" font-size="10" fill="#1C1C1A" text-anchor="middle">
+          <text x="60" y="130">1943</text><text x="270" y="130">1949</text><text x="480" y="130">1957</text><text x="690" y="130">1986</text><text x="840" y="130">HOY</text>
+          <text x="60" y="185" font-size="9" fill="#6B6560">McCulloch–Pitts</text>
+          <text x="270" y="185" font-size="9" fill="#6B6560">Hebb</text>
+          <text x="480" y="185" font-size="9" fill="#6B6560">Rosenblatt</text>
+          <text x="690" y="185" font-size="9" fill="#6B6560">Backprop</text>
+          <text x="840" y="185" font-size="9" fill="#6B6560">GPT / Claude</text>
+        </g>
+      </svg>
+    </div>
+  `
+},
+
+/* 6 — LIMITS GRID — holds/breaks */
+{
+  layout: "layout-limits", dark: false, title: "Dónde funciona el paralelo — y dónde no",
+  html: `
+    <div class="sos-kicker rv-label d1">EL PARALELO, BAJO PRESIÓN</div>
+    <div class="sos-heading rv-title d2">Dónde funciona — y dónde no</div>
+    <div class="limits-grid rv-label d3">
+      <div class="limits-cell"><div class="limits-lbl" style="color:#1A6B52;">SOSTIENE</div><p class="sos-body">La lógica de actualización: conexiones que contribuyen a una respuesta correcta se refuerzan.</p></div>
+      <div class="limits-cell is-break"><div class="limits-lbl" style="color:#7A2020;">SE ROMPE</div><p class="sos-body">Una red artificial no tiene neurotransmisores ni cuerpo.</p></div>
+      <div class="limits-cell"><div class="limits-lbl" style="color:#1A6B52;">SOSTIENE</div><p class="sos-body">La escala del principio — de un molusco con 20,000 neuronas a un modelo con miles de millones de parámetros.</p></div>
+      <div class="limits-cell is-break"><div class="limits-lbl" style="color:#7A2020;">SE ROMPE</div><p class="sos-body">No hay LTP molecular real — no hay receptores NMDA, solo aritmética de pesos.</p></div>
+    </div>
+  `
+},
+
+/* 7 — PROMPT LAB — dark, 3 prompts */
+{
+  layout: "layout-prompt-lab", dark: true, title: "El experimento",
+  html: `
+    <div class="sos-kicker rv-label d1">BLOQUE B · EL EXPERIMENTO</div>
+    <div class="sos-heading rv-title d2">¿Puede la IA hablar con precisión sobre su propio aprendizaje?</div>
+    <div class="pl-deck">
+      <div class="pl-card rv-step tn1"><span class="pl-card-num">01</span><span class="pl-card-txt">Explica la regla de Hebb y su relación con el entrenamiento de redes neuronales artificiales. Sé técnicamente preciso.</span></div>
+      <div class="pl-card rv-step tn2"><span class="pl-card-num">02</span><span class="pl-card-txt">¿En qué punto la analogía entre aprendizaje sináptico y actualización de pesos deja de ser precisa? ¿Qué no tiene equivalente en ML?</span></div>
+      <div class="pl-card rv-step tn3"><span class="pl-card-num">03</span><span class="pl-card-txt">Cuando tú — ChatGPT — fuiste entrenado, ¿aprendiste de la misma manera que un cerebro humano aprende? Honestidad técnica.</span></div>
+    </div>
+  `
+},
+
+/* 8 — ANALYSIS — dark, task + questions */
+{
+  layout: "layout-analysis", dark: true, title: "Precisa o evasiva",
+  html: `
+    <div class="sos-kicker rv-label d1">ANÁLISIS</div>
+    <div class="an-task sos-heading rv-title d2">¿Dónde fue precisa la IA — y dónde evadió la pregunta?</div>
+    <div class="an-questions">
+      <div class="an-q rv-step tn1"><span class="an-q-num">01</span><span class="sos-body">¿Dónde fue la IA precisa en su autoevaluación — y dónde evitó la pregunta o respondió de manera vaga?</span></div>
+      <div class="an-q rv-step tn2"><span class="an-q-num">02</span><span class="sos-body">¿Qué le faltó decir sobre sus propios límites?</span></div>
+      <div class="an-q rv-step tn3"><span class="an-q-num">03</span><span class="sos-body">Marca cada vez que la respuesta use &ldquo;podría decirse&rdquo; o &ldquo;en cierto sentido&rdquo; — lenguaje evasivo, no técnico.</span></div>
+    </div>
+  `
+},
+
+/* 9 — CONCLUSION — Monument, open question */
+{
+  layout: "layout-conclusion", dark: false, title: "Pregunta abierta hacia Semana 3",
+  html: `
+    <div class="concl-claim">
+      <div class="sos-kicker rv-label d1">CIERRE — SIN RESOLVER</div>
+      <div class="sos-heading rv-title d2">Si el cerebro aprende a ver y reconocer patrones visuales, ¿cómo lo hace — y cómo replicó esa capacidad la arquitectura de las CNN?</div>
+      <p class="sos-caption concl-proof rv-label d4">Semana 3 — Visión y reconocimiento de patrones →</p>
+    </div>
+  `
+}
+
+];
+</script>
+<script src="/scholar-engine.js"></script>
+<script>sosBuild(SLIDES);</script>
+</body>
+</html>

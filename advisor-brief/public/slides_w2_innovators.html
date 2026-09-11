@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Semana 2 · Innovators — Scholar OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/scholar-engine.css" />
+<style>
+  :root { --accent: #1A6B52; --accent-soft: #B8DCC8; }
+  html, body { background: #0d1410; }
+</style>
+</head>
+<body>
+
+<div class="sos-stage" id="sos-stage"></div>
+
+<script>
+const SLIDES = [
+
+/* 1 — COVER — Monument */
+{
+  layout: "layout-monument", dark: false, title: "El mecanismo del aprendizaje",
+  html: `
+    <div class="monument-top-rule"></div>
+    <div class="monument-exhibit sos-exhibit rv-meta d1">SEMANA 2 · BIMESTRE 2</div>
+    <div class="monument-content">
+      <div>
+        <div class="sos-kicker rv-label d2">INNOVATORS · STAGE 9</div>
+        <div class="sos-display rv-title d3">El mecanismo<br/>del <em>aprendizaje</em></div>
+        <p class="sos-body cover-sub rv-label d4">La plasticidad sináptica y su paralelo directo con las redes neuronales artificiales.</p>
+        <div class="cover-meta-row rv-meta d5">
+          <span class="sos-meta">Paradise GHS</span><span class="sos-meta">Currículo de IA</span><span class="sos-meta">Semana 2</span>
+        </div>
+      </div>
+      <div class="monument-art rv-plate d2">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <g id="paper"></g>
+          <g id="artifact" fill="none" stroke="#D8D3C8" stroke-width="1.25">
+            <line x1="60" y1="90" x2="210" y2="140"/><line x1="60" y1="200" x2="210" y2="140"/>
+            <line x1="60" y1="310" x2="210" y2="260"/><line x1="60" y1="90" x2="210" y2="260"/>
+            <line x1="210" y1="140" x2="360" y2="180" stroke="#1A6B52" stroke-width="2"/>
+            <line x1="210" y1="260" x2="360" y2="180"/><line x1="210" y1="140" x2="360" y2="260"/>
+            <line x1="210" y1="260" x2="360" y2="260" stroke="#1A6B52" stroke-width="2"/>
+          </g>
+          <g id="artifact-nodes" fill="#1C1C1A">
+            <circle cx="60" cy="90" r="7"/><circle cx="60" cy="200" r="7"/><circle cx="60" cy="310" r="7"/>
+            <circle cx="210" cy="140" r="8" fill="#1A6B52"/><circle cx="210" cy="260" r="8" fill="#1A6B52"/>
+            <circle cx="360" cy="180" r="7"/><circle cx="360" cy="260" r="7"/>
+          </g>
+          <g id="metadata"><text x="30" y="380" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#6B6560">RED NEURONAL — ESQUEMA</text></g>
+        </svg>
+      </div>
+    </div>
+    <div class="monument-bottom-rule"></div>
+  `
+},
+
+/* 2 — INQUIRY — Reading Plate */
+{
+  layout: "layout-reading-plate", dark: false, title: "¿Qué cambia físicamente?", hasQuote: true,
+  html: `
+    <div class="plate-inner">
+      <div class="sos-kicker plate-kicker rv-label d1">PREGUNTA CENTRAL</div>
+      <div class="plate-quote rv-title d2">¿Qué cambia físicamente en tu cerebro cuando aprendes algo nuevo?</div>
+      <div class="sos-meta plate-cite rv-meta d4">SEMANA 2 · INNOVATORS</div>
+    </div>
+  `
+},
+
+/* 3 — QUOTE — Reading Plate — Hebb cold */
+{
+  layout: "layout-reading-plate", dark: false, title: "Hebb, sin contexto todavía", hasQuote: true,
+  html: `
+    <div class="plate-inner">
+      <div class="sos-kicker plate-kicker rv-label d1">UNA REGLA, SIN EXPLICACIÓN AÚN</div>
+      <div class="plate-quote rv-title d2">&ldquo;Las neuronas que se activan juntas, se conectan más fuerte.&rdquo;</div>
+      <div class="sos-meta plate-cite rv-meta d4">DONALD HEBB, 1949</div>
+    </div>
+  `
+},
+
+/* 4 — ARTIFACT — Deep Label — neuron anatomy Museum Sketch */
+{
+  layout: "layout-deep-label", dark: false, title: "Anatomía de la neurona", hasArtifact: true,
+  html: `
+    <div class="dl-field rv-plate d2">
+      <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="paper"></g>
+        <g id="metadata"><text x="20" y="24" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#6B6560">SVG_NEURON_ANATOMY — MUSEUM SKETCH</text></g>
+        <g id="artifact" stroke="#1C1C1A" stroke-width="1.5" fill="none">
+          <line x1="40" y1="210" x2="120" y2="170"/><line x1="40" y1="210" x2="120" y2="190"/><line x1="40" y1="210" x2="120" y2="230"/><line x1="40" y1="210" x2="120" y2="250"/>
+          <circle cx="40" cy="210" r="3" fill="#1C1C1A"/><circle cx="40" cy="230" r="3" fill="#1C1C1A"/><circle cx="40" cy="190" r="3" fill="#1C1C1A"/>
+          <ellipse cx="180" cy="210" rx="55" ry="42" fill="none" stroke="#1A6B52"/>
+          <path d="M235,205 C280,205 330,205 380,205" stroke="#1C1C1A"/>
+          <rect x="290" y="196" width="20" height="18" fill="#D8D3C8" stroke="none"/><rect x="330" y="196" width="20" height="18" fill="#D8D3C8" stroke="none"/>
+          <circle cx="400" cy="200" r="8" fill="none"/><circle cx="410" cy="212" r="8" fill="none"/><circle cx="398" cy="222" r="8" fill="none"/>
+        </g>
+        <g id="annotation" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">
+          <text x="20" y="150">DENDRITAS</text><text x="150" y="150">SOMA</text><text x="290" y="150">AXÓN (MIELINA)</text><text x="380" y="150">TERMINALES</text>
+          <line x1="60" y1="155" x2="60" y2="200" stroke="#D8D3C8" stroke-width="0.75"/>
+          <line x1="180" y1="155" x2="180" y2="170" stroke="#D8D3C8" stroke-width="0.75"/>
+          <line x1="320" y1="155" x2="320" y2="196" stroke="#D8D3C8" stroke-width="0.75"/>
+          <line x1="400" y1="155" x2="400" y2="192" stroke="#D8D3C8" stroke-width="0.75"/>
+        </g>
+      </svg>
+    </div>
+    <div class="dl-labels">
+      <div class="sos-exhibit rv-meta d1">VOCABULARIO COMPLETO</div>
+      <div class="sos-heading rv-title d2">Dendritas · Soma<br/>Axón · Sinapsis</div>
+      <p class="sos-body rv-label d3">Dendritas reciben señales. El soma decide si dispara. El axón —recubierto de mielina— conduce el impulso. Los terminales liberan neurotransmisores en la sinapsis.</p>
+    </div>
+  `
+},
+
+/* 5 — LESSON ACTIVITY — Hebb as framework (dark) */
+{
+  layout: "layout-activity", dark: true, title: "La regla de Hebb como marco",
+  html: `
+    <div class="activity-anchor">
+      <div class="sos-kicker rv-label d1">BLOQUE A · MARCO</div>
+      <div class="sos-heading rv-title d2">La plasticidad<br/>sináptica</div>
+      <p class="sos-body rv-label d3" style="margin-top:14px;">El cerebro modifica físicamente sus conexiones en respuesta a la experiencia. No es metáfora — es un cambio estructural medible.</p>
+    </div>
+    <div class="activity-steps">
+      <div class="activity-step sos-body rv-step tn1">01 — La regla de Hebb (1949) describe este fenómeno.</div>
+      <div class="activity-step sos-body rv-step tn2">02 — Cuando una red artificial aprende, ajusta el peso de las conexiones entre nodos.</div>
+      <div class="activity-step sos-body rv-step tn3">03 — Igual que el cerebro ajusta la fuerza de las sinapsis con la práctica.</div>
+      <div class="activity-step sos-body rv-step tn4">04 — No es una analogía poética: es la misma lógica de aprendizaje, en silicio en vez de biología.</div>
+    </div>
+  `
+},
+
+/* 6 — ARTIFACT — Deep Label — guitar chord 3-panel */
+{
+  layout: "layout-deep-label", dark: false, title: "El acorde de guitarra", hasArtifact: true,
+  html: `
+    <div class="dl-field rv-plate d2">
+      <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="paper"></g>
+        <g id="metadata"><text x="20" y="24" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#6B6560">SVG_GUITAR_SEQUENCE — ESPECIMEN 3 PANELES</text></g>
+        <g id="artifact" stroke="#1C1C1A" fill="none">
+          <text x="90" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">1ª VEZ</text>
+          <circle cx="60" cy="180" r="8" stroke-width="1.25"/><circle cx="120" cy="180" r="8" stroke-width="1.25"/>
+          <line x1="70" y1="180" x2="110" y2="180" stroke-width="1.25" stroke-dasharray="2,3"/>
+
+          <text x="280" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">10ª VEZ</text>
+          <circle cx="250" cy="180" r="8" stroke-width="2"/><circle cx="310" cy="180" r="8" stroke-width="2"/>
+          <line x1="260" y1="180" x2="300" y2="180" stroke-width="2"/>
+
+          <text x="470" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#1A6B52">100ª VEZ</text>
+          <circle cx="440" cy="180" r="9" fill="#1A6B52" stroke="none"/><circle cx="500" cy="180" r="9" fill="#1A6B52" stroke="none"/>
+          <line x1="452" y1="180" x2="488" y2="180" stroke="#1A6B52" stroke-width="3.5"/>
+        </g>
+        <g id="annotation"><text x="20" y="350" font-family="IBM Plex Mono" font-size="9" fill="#6B6560">¿QUÉ CAMBIA? ¿QUÉ SE AUTOMATIZA?</text></g>
+      </svg>
+    </div>
+    <div class="dl-labels">
+      <div class="sos-exhibit rv-meta d1">ESCENARIO GUIADO</div>
+      <div class="sos-heading rv-title d2">La décima vez<br/>es más fácil</div>
+      <p class="sos-body rv-label d3">Un estudiante aprende a tocar un acorde. La primera vez, la décima, la centésima — traza lo que ocurre en el cerebro en cada una.</p>
+    </div>
+  `
+},
+
+/* 7 — COMPARISON WALL — neurona vs nodo */
+{
+  layout: "layout-comparison", dark: false, title: "Neurona biológica vs. nodo de red",
+  html: `
+    <div class="sos-kicker rv-label d1">TABLA COMPARATIVA</div>
+    <div class="sos-heading rv-title d2">Neurona biológica<br/>vs. nodo de red</div>
+    <table class="cw-table rv-label d3">
+      <thead><tr><th>Pregunta</th><th>Neurona biológica</th><th>Nodo de red (a completar)</th></tr></thead>
+      <tbody>
+        <tr><td class="sos-caption">¿Cómo recibe información?</td><td class="sos-body">Dendritas reciben señales de otras neuronas</td><td class="sos-caption">— completar en el Prompt Lab —</td></tr>
+        <tr><td class="sos-caption">¿Cómo decide activarse?</td><td class="sos-body">El soma integra señales y decide si dispara</td><td class="sos-caption">—</td></tr>
+        <tr><td class="sos-caption">¿Cómo envía su señal?</td><td class="sos-body">El axón conduce el impulso eléctrico</td><td class="sos-caption">—</td></tr>
+        <tr><td class="sos-caption">¿Qué cambia al aprender?</td><td class="sos-body">La sinapsis se fortalece (LTP)</td><td class="sos-caption">—</td></tr>
+        <tr><td class="sos-caption">¿Qué necesita para aprender?</td><td class="sos-body">Activación repetida y simultánea</td><td class="sos-caption">—</td></tr>
+      </tbody>
+    </table>
+  `
+},
+
+/* 8 — PROMPT LAB — dark, 3 prompts */
+{
+  layout: "layout-prompt-lab", dark: true, title: "Laboratorio de prompts",
+  html: `
+    <div class="sos-kicker rv-label d1">BLOQUE B · AI PROMPT LAB</div>
+    <div class="sos-heading rv-title d2">Verifica la tabla comparativa</div>
+    <div class="pl-deck">
+      <div class="pl-card rv-step tn1"><span class="pl-card-num">01</span><span class="pl-card-txt">¿Qué es la regla de Hebb y cómo se aplica a las redes neuronales artificiales?</span></div>
+      <div class="pl-card rv-step tn2"><span class="pl-card-num">02</span><span class="pl-card-txt">Dame un ejemplo concreto de cómo cambian los pesos de una red durante el entrenamiento. Usa una analogía con el cerebro humano.</span></div>
+      <div class="pl-card rv-step tn3"><span class="pl-card-num">03</span><span class="pl-card-txt">¿En qué se diferencia el aprendizaje de una red artificial del aprendizaje de un cerebro biológico? Al menos tres diferencias concretas.</span></div>
+    </div>
+  `
+},
+
+/* 9 — DISCUSSION / ANALYSIS — dark */
+{
+  layout: "layout-analysis", dark: true, title: "Dónde se rompe la analogía",
+  html: `
+    <div class="sos-kicker rv-label d1">CIERRE DE BLOQUE B</div>
+    <div class="an-task sos-heading rv-title d2">Completa tu tabla — y señala dónde se rompe</div>
+    <div class="an-questions">
+      <div class="an-q rv-step tn1"><span class="an-q-num">01</span><span class="sos-body">Completa la columna de IA de tu tabla comparativa con lo que aprendiste.</span></div>
+      <div class="an-q rv-step tn2"><span class="an-q-num">02</span><span class="sos-body">Señala una fila donde la analogía es precisa.</span></div>
+      <div class="an-q rv-step tn3"><span class="an-q-num">03</span><span class="sos-body">Señala una fila donde la analogía se rompe — el desacuerdo es más valioso que el consenso.</span></div>
+    </div>
+  `
+},
+
+/* 10 — CONCLUSION — Monument */
+{
+  layout: "layout-conclusion", dark: false, title: "Misma lógica, otra escala",
+  html: `
+    <div class="concl-claim">
+      <div class="sos-kicker rv-label d1">CIERRE</div>
+      <div class="sos-heading rv-title d2">&ldquo;No es una analogía poética. Es la misma lógica de aprendizaje, implementada en silicio en lugar de en biología.&rdquo;</div>
+      <p class="sos-caption concl-proof rv-label d4">Semana 3 — Visión y reconocimiento de patrones →</p>
+    </div>
+  `
+}
+
+];
+</script>
+<script src="/scholar-engine.js"></script>
+<script>sosBuild(SLIDES);</script>
+</body>
+</html>
