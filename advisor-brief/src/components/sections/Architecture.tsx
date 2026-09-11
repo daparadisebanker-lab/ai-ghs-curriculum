@@ -1,6 +1,10 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionShell } from "@/components/ui/SectionShell";
 import { layers, layersIntro } from "@/lib/content/layers";
+import { TeacherMockup } from "@/components/mockups/TeacherMockup";
+import { StudentMockup } from "@/components/mockups/StudentMockup";
+import { TechStackGrid } from "@/components/diagrams/TechStackGrid";
+import { DataFlowDiagram } from "@/components/diagrams/DataFlowDiagram";
 
 export function Architecture() {
   return (
@@ -46,8 +50,69 @@ export function Architecture() {
         ))}
       </div>
 
-      <Reveal delayMs={280}>
-        <p className="mx-auto mt-14 max-w-2xl text-center font-display text-xl italic text-ink-soft/80">
+      {/* What this actually looks like — real UI, not a diagram of an idea */}
+      <div className="mt-16">
+        <Reveal>
+          <h3 className="font-display text-2xl font-semibold">What this actually looks like</h3>
+        </Reveal>
+        <Reveal delayMs={60}>
+          <p className="mt-2 max-w-2xl text-ink-soft/85">
+            Not a mockup of an idea — the actual screens. The pin control on
+            the left is the same mechanism as the share button on the right:
+            one interface, two seats, a single Protected Field between them.
+          </p>
+        </Reveal>
+
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+          <Reveal delayMs={100}>
+            <div>
+              <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+                Teacher · projected display
+              </div>
+              <TeacherMockup />
+            </div>
+          </Reveal>
+          <Reveal delayMs={160}>
+            <div>
+              <div className="mb-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted lg:text-left">
+                Student · personal device — click a state
+              </div>
+              <StudentMockup />
+            </div>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* The technology layer, made concrete */}
+      <div className="mt-20">
+        <Reveal>
+          <h3 className="font-display text-2xl font-semibold">The enabling technology</h3>
+        </Reveal>
+        <Reveal delayMs={60}>
+          <p className="mt-2 max-w-2xl text-ink-soft/85">
+            Four pieces of infrastructure. One of them exists specifically so
+            the doctrine in the Governance Layer is a schema fact, not a
+            promise.
+          </p>
+        </Reveal>
+        <Reveal delayMs={100}>
+          <div className="mt-6">
+            <TechStackGrid />
+          </div>
+        </Reveal>
+
+        <Reveal delayMs={140}>
+          <div className="mt-10 border border-rule bg-surface px-5 py-7 sm:px-8">
+            <div className="mb-6 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+              The path a single prompt takes
+            </div>
+            <DataFlowDiagram />
+          </div>
+        </Reveal>
+      </div>
+
+      <Reveal delayMs={180}>
+        <p className="mx-auto mt-16 max-w-2xl text-center font-display text-xl italic text-ink-soft/80">
           Governance and pedagogy are not two competing systems here — they
           are two lenses on the same three layers. The next two sections read
           the same architecture through each lens in turn.
