@@ -61,13 +61,14 @@ export function StudentMockup() {
               </span>
               <div className="mb-2 border border-ink/15 bg-paper px-3 py-2">
                 <p className="text-xs leading-relaxed text-ink-soft">
-                  ¿Por qué decimos que la IA &ldquo;aprende&rdquo; si no tiene cerebro?
+                  Explícame cómo aprende el cerebro. Soy un niño de 10 años y nunca he estudiado ciencias.
                 </p>
               </div>
               <div className="mb-3 border-l-2 border-gold/60 bg-gold/[0.06] px-3 py-2">
                 <p className="text-xs leading-relaxed text-ink-soft/80">
-                  Ajusto parámetros numéricos según patrones en datos — sin una red neuronal biológica
-                  ni experiencia. Es una metáfora, no una equivalencia literal.
+                  Imagina un camino en el pasto. La primera vez que caminas por ahí, cuesta un poco. Pero
+                  si caminas por el mismo camino muchas veces, se vuelve un sendero fácil. Tu cerebro hace
+                  lo mismo: cuando practicas algo, ese &ldquo;camino&rdquo; entre neuronas se hace más fuerte.
                 </p>
               </div>
               <button
@@ -86,11 +87,12 @@ export function StudentMockup() {
           {state === "reviewing" && (
             <div className="flex flex-1 flex-col">
               <span className="mb-3 font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
-                Tu respuesta
+                Ticket de salida · tu respuesta
               </span>
               <div className="mb-4 border border-ink/15 bg-paper px-3 py-2">
                 <p className="text-xs leading-relaxed text-ink-soft">
-                  &ldquo;No&rdquo; — porque no puede sentir, solo predecir.
+                  &ldquo;Puedo sentir vergüenza cuando me equivoco frente a la clase — creo que ChatGPT
+                  no tiene eso.&rdquo;
                 </p>
               </div>
               <span className="mb-2 font-mono text-[9px] uppercase tracking-[0.1em] text-muted">
@@ -98,10 +100,10 @@ export function StudentMockup() {
               </span>
               <div className="space-y-2">
                 <div className="border border-ink/10 bg-surface px-3 py-2 text-xs leading-relaxed text-ink-soft/70">
-                  &ldquo;Depende de qué tipo de aprendizaje.&rdquo;
+                  &ldquo;La intuición de saber cuándo alguien miente.&rdquo;
                 </div>
                 <div className="border border-ink/10 bg-surface px-3 py-2 text-xs leading-relaxed text-ink-soft/70">
-                  &ldquo;Sí, ambos ajustan por retroalimentación.&rdquo;
+                  &ldquo;Recordar el olor de la casa de mi abuela.&rdquo;
                 </div>
               </div>
             </div>

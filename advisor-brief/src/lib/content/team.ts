@@ -61,8 +61,8 @@ export const decisionLog: DecisionItem[] = [
   {
     id: 2,
     title:
-      "Data-boundary architecture for prompt-exchange and Scholar-OS-portfolio data flowing toward curriculum-training or Brücke-credential use.",
-    owner: "Muaaz + Brücke data-architecture lead",
+      "Data-boundary architecture for prompt-exchange data flowing toward curriculum-training use.",
+    owner: "Muaaz",
     neededBy: "Before Sprint 4 (analytics)",
   },
   {

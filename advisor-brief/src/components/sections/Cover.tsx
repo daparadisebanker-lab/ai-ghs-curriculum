@@ -24,17 +24,17 @@ export function Cover() {
 
         <Reveal delayMs={100}>
           <h1 className="max-w-4xl text-balance font-display text-[2.6rem] font-semibold leading-[1.06] sm:text-6xl md:text-7xl">
-            An invitation to build the{" "}
-            <em className="italic text-terra">reference standard</em> for
-            governed AI in secondary education.
+            The AI curriculum, the platform it runs on, and the{" "}
+            <em className="italic text-terra">calls only you can make</em>.
           </h1>
         </Reveal>
 
         <Reveal delayMs={220}>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft/80 sm:text-xl">
-            Paradise Classroom and Scholar OS, presented to the Senior
-            Academic Advisor — and the document a future teacher, hire, or
-            partner opens next.
+            A working reference on the AI curriculum, Paradise Classroom, and
+            Scholar OS — what Bimestre 2 actually teaches, how the platform
+            runs it live, and the document a future teacher or hire opens
+            next.
           </p>
         </Reveal>
       </div>

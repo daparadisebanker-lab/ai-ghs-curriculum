@@ -21,7 +21,7 @@ export const protectedFieldsRegister: ProtectedFieldRow[] = [
     status: "PROTECTED",
     aiRole: "None — the AI never decides whether its own output is amplified to the class.",
     enforcement:
-      "Same RLS pattern as above. The single most important Protected Field in the entire system — the schema-level equivalent of Ascend's admissibility-field exclusion, applied to a live classroom.",
+      "Same RLS pattern as above. The single most important Protected Field in the entire system — no exchange reaches the class display unless a named teacher writes that flag.",
     highlight: true,
   },
   {
@@ -70,7 +70,7 @@ export const auditTrail = {
   recommendation:
     "Add a teacher_note (or context_added) text field to prompt_exchanges, populated whenever a teacher pins an exchange, capturing what they said or added when presenting it. Recommended for inclusion in Sprint 3, not deferred to Sprint 4.",
   earlyWarning:
-    "A growing share of zero-delta, rubber-stamp approvals is an early-warning signal, not a neutral fact. If a teacher's pinned exchanges consistently carry no teacher_note, that is the Paradise Classroom equivalent of the zero-delta signal in Ascend's Pathway Brief: judgment is being approved, not exercised.",
+    "A growing share of zero-delta, rubber-stamp approvals is an early-warning signal, not a neutral fact. If a teacher's pinned exchanges consistently carry no teacher_note, that is a warning sign in its own right: judgment is being approved, not exercised.",
 };
 
 export const regulatoryPositioning = {

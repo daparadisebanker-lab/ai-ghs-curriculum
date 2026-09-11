@@ -31,9 +31,9 @@ export const risks: RiskRow[] = [
   },
   {
     category: "Structural",
-    risk: "Prompt-exchange or Scholar-OS-portfolio data begins flowing toward curriculum-training or Brücke-credential use as an assumed default rather than a deliberate, architected decision.",
+    risk: "Prompt-exchange data begins flowing toward curriculum-training use as an assumed default rather than a deliberate, architected decision.",
     mitigation:
-      "Named sign-off required before either flow is implemented; treated as a Horizon 2 decision, not an emergent one.",
+      "Named sign-off required before that flow is implemented; treated as a Horizon 2 decision, not an emergent one.",
   },
   {
     category: "Structural",

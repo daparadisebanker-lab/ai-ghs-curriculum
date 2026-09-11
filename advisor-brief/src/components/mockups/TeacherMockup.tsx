@@ -18,33 +18,43 @@ function PinIcon({ filled }: { filled: boolean }) {
   );
 }
 
+// Real Semana 1 Pathfinders activity: five cards on the board, one physical vote.
 const votes = [
-  { label: "Sí", pct: 18 },
-  { label: "No", pct: 54 },
-  { label: "Depende", pct: 28 },
+  { label: "Golden retriever", pct: 6 },
+  { label: "Computadora de ajedrez", pct: 11 },
+  { label: "Niño de 2 años", pct: 14 },
+  { label: "Cirujano", pct: 31 },
+  { label: "ChatGPT", pct: 38 },
 ];
 
 type Exchange = {
   id: string;
   initials: string;
+  cohort: string;
   prompt: string;
   response: string;
   pinned: boolean;
 };
 
+// Real prompts from the curriculum (Semana 1 Pathfinders, Semana 2 Leaders).
 const initialExchanges: Exchange[] = [
   {
     id: "a",
-    initials: "MC",
-    prompt: "¿Puedes sentir algo cuando respondes?",
-    response: "No — no tengo estados afectivos. Genero texto por patrones, sin experiencia subjetiva.",
+    initials: "JR",
+    cohort: "Pathfinders",
+    prompt: "¿Eres más inteligente que un perro?",
+    response:
+      "Depende del tipo de inteligencia. Soy mejor recordando datos y respondiendo rápido, pero un perro puede oler, sentir y adaptarse físicamente a su entorno de formas que yo no puedo.",
     pinned: true,
   },
   {
     id: "b",
-    initials: "JR",
-    prompt: "Compara una neurona con un nodo de red.",
-    response: "Ambos suman señales de entrada — pero la neurona cambia por experiencia vivida, no solo por datos.",
+    initials: "MC",
+    cohort: "Leaders",
+    prompt:
+      "Cuando tú — ChatGPT — fuiste entrenado, ¿aprendiste de la misma manera que un cerebro humano aprende?",
+    response:
+      "En cierto sentido, sí — mis parámetros se ajustaron por exposición repetida a datos, algo análogo a la plasticidad sináptica. Pero podría decirse que no tengo experiencia subjetiva del aprendizaje, solo optimización estadística.",
     pinned: false,
   },
 ];
@@ -68,8 +78,9 @@ export function TeacherMockup() {
             </span>
           </div>
           <p className="mb-4 font-display text-base font-semibold leading-snug text-ink">
-            &ldquo;La IA aprende exactamente igual que un cerebro humano.&rdquo;
+            &ldquo;¿Quién es el más inteligente?&rdquo;
           </p>
+          <p className="-mt-3 mb-4 text-xs text-muted">Semana 1 · voto físico frente a cinco tarjetas</p>
           <div className="space-y-2.5">
             {votes.map((v) => (
               <div key={v.label}>
@@ -103,7 +114,7 @@ export function TeacherMockup() {
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink/10 font-mono text-[9px] text-ink-soft">
                     {e.initials}
                   </span>
-                  <span className="font-mono text-[10px] text-muted">estudiante</span>
+                  <span className="font-mono text-[10px] text-muted">{e.cohort}</span>
                 </div>
                 <p className="text-xs leading-relaxed text-ink-soft">{e.prompt}</p>
                 <p className="mt-1 border-l-2 border-gold/50 pl-2 text-xs leading-relaxed text-ink-soft/70">

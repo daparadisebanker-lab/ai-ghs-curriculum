@@ -25,9 +25,9 @@ const mono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paradise Classroom — An Invitation to Govern What AI Is Allowed to Judge",
+  title: "Paradise Classroom — The AI Curriculum, the Platform, and the Governance",
   description:
-    "The reference site for Paradise Classroom and Scholar OS at Paradise Global High School — the pedagogical layer, the governance doctrine, and the invitation to the Senior Academic Advisor.",
+    "A working reference for Paradise Classroom and Scholar OS at Paradise Global High School — the AI curriculum, the platform it runs on, the pedagogical layer, and the governance doctrine.",
 };
 
 export default function RootLayout({

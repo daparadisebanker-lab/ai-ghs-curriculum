@@ -4,7 +4,7 @@ import { SectionShell } from "@/components/ui/SectionShell";
 import { StatusPill } from "@/components/ui/StatusPill";
 import {
   correctedTrigger,
-  doctrineOrigin,
+  doctrinePillars,
   governingDoctrine,
 } from "@/lib/content/doctrine";
 import {
@@ -37,13 +37,13 @@ export function GovernanceLayer() {
       </Reveal>
 
       <div className="mt-10 grid gap-px overflow-hidden border border-paper/15 bg-paper/15 sm:grid-cols-3">
-        {doctrineOrigin.map((d, i) => (
-          <Reveal key={d.venture} delayMs={i * 80}>
+        {doctrinePillars.map((d, i) => (
+          <Reveal key={d.label} delayMs={i * 80}>
             <div className="h-full bg-ink px-6 py-5">
               <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-paper/50">
-                {d.venture} encoded it as
+                {d.label}
               </div>
-              <div className="mt-1 font-display text-lg font-semibold text-paper">{d.encoding}</div>
+              <div className="mt-1 font-display text-lg font-semibold text-paper">{d.heading}</div>
               <p className="mt-2 text-sm leading-relaxed text-paper/70">{d.detail}</p>
             </div>
           </Reveal>

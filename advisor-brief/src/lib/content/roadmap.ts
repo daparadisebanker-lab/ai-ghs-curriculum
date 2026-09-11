@@ -31,18 +31,18 @@ export const horizons: Horizon[] = [
       "Sprint 4 (analytics): session history, per-student response review, basic engagement metrics — built to the boundary set in the Governance document (raw counts only; no stored judgment about a specific student).",
       "Sprint 5 (licensing prep): school admin dashboard, multi-tenant isolation verification, Stripe integration.",
       "Extend Scholar OS beyond Bimestre 2's Week 2 unit across the rest of the Data & AI curriculum, maintaining the same doctrine-consistency discipline at every unit.",
-      "Resolve the structural data-boundary question (prompt-exchange data as curriculum-improvement input; Scholar OS portfolio output as future Brücke credential data) with a named architecture, before either flow is implemented by default.",
+      "Resolve the structural data-boundary question (whether prompt-exchange data may ever be used to improve future curriculum content) with a named architecture, before that flow is implemented by default.",
     ],
   },
   {
     key: "h3",
     label: "Horizon 3",
     window: "3–5 Years",
-    title: "The Group's Regulatory and Commercial Reference Case",
+    title: "The Reference Case for Governed AI in Secondary Education",
     items: [
-      "Package the Protected Fields Register, the audit-trail record (including the recommended teacher_note field), and the cohort-tiered content-safety architecture as a demonstrable case study — evidence, not assertion, for Brücke's conversations with Politecnico di Milano, Bologna, or ETH.",
+      "Package the Protected Fields Register, the audit-trail record (including the recommended teacher_note field), and the cohort-tiered content-safety architecture as a demonstrable case study — evidence, not assertion, of what a governed AI classroom looks like in practice.",
       "Evaluate Paradise Classroom's licensing model to other schools (the multi-tenant architecture is already built for this) once GHS's own deployment has a full academic year of governed operation behind it.",
-      "If the Horizon 2 data-boundary decision is resolved affirmatively and deliberately, this is the horizon where that longitudinal data could plausibly begin informing Brücke's models — but only as the outcome of that decision, never assumed ahead of it.",
+      "Extend the same doctrine-consistency discipline to every curriculum unit built after Bimestre 2 — Semanas 3–9 and beyond — not only the first one.",
     ],
   },
 ];

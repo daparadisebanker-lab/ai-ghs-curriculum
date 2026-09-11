@@ -20,7 +20,7 @@ export const cohorts: Cohort[] = [
     color: "path",
     hex: "#1d4e89",
     weekTwoBeat:
-      "The telephone-game activity and the synapse Lab Plate artifact ground the Hebbian-learning claim in direct experience before naming it.",
+      "The teléfono descompuesto (telephone game) and a simple chalkboard neuron diagram ground the Hebbian-learning claim in direct experience — then two Prompt Lab prompts test whether a child-friendly AI explanation is actually better.",
     promptLabRole:
       "The cohort's Prompt Lab exposure carries the strictest content-safety posture in the system.",
   },
@@ -33,9 +33,9 @@ export const cohorts: Cohort[] = [
     color: "inno",
     hex: "#1a6b3c",
     weekTwoBeat:
-      "The cold Hebb quote, followed by the neuron-vs-node Comparison Wall, teaches the mechanism before testing whether the analogy holds.",
+      "Full anatomical vocabulary — dendrites, soma, axon, synapse — plus Hebb's 1949 rule, then a neurona/nodo comparison table the AI helps complete, with a required step: name a row where the analogy breaks.",
     promptLabRole:
-      "The natural home for compare_prompts — two AI outputs held to the same rigor as the Comparison Wall.",
+      "The natural home for compare_prompts — the same three-prompt sequence students use to complete their neurona/nodo comparison table.",
   },
   {
     key: "leaders",
@@ -46,14 +46,14 @@ export const cohorts: Cohort[] = [
     color: "lead",
     hex: "#6b1a1a",
     weekTwoBeat:
-      "“La IA aprende exactamente igual” (“AI learns exactly the same way”) opens as a claim the class must dismantle, followed by a genealogy timeline (Hebb 1949 → today) and a Limits Grid of what holds and what breaks.",
+      "Opens cold with Hebb's actual 1949 line — “Cells that fire together, wire together” — then the real genealogy (McCulloch-Pitts 1943 → Hebb 1949 → Rosenblatt 1957 → backpropagation 1986 → today), and a Prompt Lab experiment that asks ChatGPT to self-report on whether its own training resembled human learning.",
     promptLabRole:
-      "Paired with evaluate_ai — the cohort old enough for personalization is also the cohort asked to render the sharpest judgment on the AI itself.",
+      "Paired with evaluate_ai — the cohort asked to judge whether the AI's self-report on its own training is precise or evasive, not just whether it's correct.",
   },
 ];
 
 export const namingCollisionNote =
-  "The Pathfinders / Innovators / Leaders names are reused elsewhere in the Group for a different purpose — the Cambridge IGCSE English proficiency tiers (B2 / B1 / A2–A1) built for a separate assessment project use the same three names for a different classification. In Paradise Classroom and Scholar OS, these names refer only to the Stage 7–8 / 9 / 10–11 age-based curriculum cohorts. Worth keeping straight so the two systems are never conflated in conversation.";
+  "The Pathfinders / Innovators / Leaders names are reused for a different purpose elsewhere — the Cambridge IGCSE English proficiency tiers (B2 / B1 / A2–A1) built for a separate assessment project use the same three names for a different classification. In Paradise Classroom and Scholar OS, these names refer only to the Stage 7–8 / 9 / 10–11 age-based curriculum cohorts. Worth keeping straight so the two systems are never conflated in conversation.";
 
 export const weekTwoTopic =
   "How the brain learns — and why AI learns the same way.";

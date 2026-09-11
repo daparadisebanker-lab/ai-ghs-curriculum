@@ -63,6 +63,19 @@ export function Nav() {
               </li>
             );
           })}
+          <li className="mt-1.5 border-t border-ink/10 pt-2">
+            <a
+              href="/curriculum.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5"
+            >
+              <span className="font-mono text-[11px] tracking-wide text-terra opacity-80 transition-opacity group-hover:opacity-100">
+                Curriculum ↗
+              </span>
+              <span className="block h-px w-4 bg-terra/50 group-hover:w-6" />
+            </a>
+          </li>
         </ol>
       </nav>
 
@@ -99,6 +112,18 @@ export function Nav() {
                 </a>
               </li>
             ))}
+            <li className="mt-1 border-t border-current/10 pt-2">
+              <a
+                href="/curriculum.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-baseline gap-3 py-1.5 font-sans text-sm text-terra"
+              >
+                <span className="font-mono text-xs opacity-70">↗</span>
+                Read the Curriculum
+              </a>
+            </li>
           </ol>
         )}
       </div>

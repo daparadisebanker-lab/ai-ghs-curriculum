@@ -1,23 +1,24 @@
 export const governingDoctrine =
   "AI performs extraction, synthesis, and pattern-recognition. Humans perform judgment, admissibility, and consequence.";
 
-export const doctrineOrigin = [
+export const doctrinePillars = [
   {
-    venture: "Ascend",
-    encoding: "a schema constraint",
-    detail: "the admissibility field in the Pathway Brief cannot be machine-set.",
+    label: "Augmentation",
+    heading: "What AI may do",
+    detail:
+      "Surface information, draft a response, generate a pattern, accelerate a task — always as a starting point, never as the final word.",
   },
   {
-    venture: "Brücke",
-    encoding: "a regulatory posture",
+    label: "Determination",
+    heading: "What only a teacher may do",
     detail:
-      "EU AI Act transparency and explainability obligations are treated as foundational architecture, not compliance overhead bolted on later.",
+      "Decide whether a student's work — AI-touched or not — is admissible, correct, or ready to reach the rest of the class. Reserved entirely for humans, no exceptions.",
   },
   {
-    venture: "Paradise GHS",
-    encoding: "pedagogy",
+    label: "Why it's non-negotiable here",
+    heading: "A live classroom, not a hypothetical",
     detail:
-      "students are taught, explicitly, that AI has no affective grounding and that this is a boundary condition on what it can be trusted to judge — not a temporary technical limitation.",
+      "Paradise Classroom is the first system at GHS where an AI model talks directly to a room of minors, in real time. The doctrine isn't abstract policy here — it's the schema.",
   },
 ];
 

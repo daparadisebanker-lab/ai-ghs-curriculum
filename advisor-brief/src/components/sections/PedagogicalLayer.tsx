@@ -6,7 +6,7 @@ import {
   promptLabTypes,
   weekTwoTopic,
 } from "@/lib/content/cohorts";
-import { evaluateAiPedagogy } from "@/lib/content/interlock";
+import { evaluateAiPedagogy, realPromptExample } from "@/lib/content/interlock";
 
 export function PedagogicalLayer() {
   return (
@@ -50,11 +50,21 @@ export function PedagogicalLayer() {
       </Reveal>
 
       <Reveal delayMs={320}>
-        <div className="mt-12 flex flex-col gap-2 border-y border-rule py-5 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-            Week 2, Bimestre 2
-          </span>
-          <span className="font-display text-xl italic">{weekTwoTopic}</span>
+        <div className="mt-12 flex flex-col gap-3 border-y border-rule py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+              Semana 2, Bimestre 2
+            </span>
+            <span className="block font-display text-xl italic">{weekTwoTopic}</span>
+          </div>
+          <a
+            href="/curriculum.html#semana2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-terra underline decoration-terra decoration-2 underline-offset-4"
+          >
+            Ver el guion completo →
+          </a>
         </div>
       </Reveal>
 
@@ -85,25 +95,25 @@ export function PedagogicalLayer() {
         </Reveal>
       </div>
 
-      {/* evaluate_ai showcase moment */}
+      {/* evaluate_ai showcase moment — the real prompt, not a hypothetical */}
       <Reveal delayMs={140}>
         <div className="mt-14 overflow-hidden border" style={{ borderColor: cohorts[2].hex }}>
           <div className="px-7 py-6 text-paper sm:px-10 sm:py-9" style={{ backgroundColor: cohorts[2].hex }}>
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper/60">
-              Leaders · Stage 10–11 · Provocation
+              {realPromptExample.cohort} · {realPromptExample.session}
             </span>
-            <p className="mt-3 max-w-2xl text-balance font-display text-2xl font-semibold italic leading-snug sm:text-3xl">
-              “La IA aprende exactamente igual.”
+            <p className="mt-3 max-w-2xl text-balance font-display text-xl font-semibold italic leading-snug sm:text-2xl">
+              “{realPromptExample.prompt}”
             </p>
-            <p className="mt-2 text-sm text-paper/70">“AI learns exactly the same way” — the claim the class is asked to dismantle, not accept.</p>
+            <p className="mt-2 text-sm text-paper/70">{realPromptExample.promptEn}</p>
           </div>
           <div className="bg-surface px-7 py-7 sm:px-10">
             <p className="text-ink-soft/90">{evaluateAiPedagogy}</p>
+            <p className="mt-3 text-sm text-muted">{realPromptExample.teacherNote}</p>
             <p className="mt-3 text-sm text-muted">
-              Genealogy timeline (Hebb 1949 → today) → Limits Grid of what
-              holds and what breaks → <span className="font-mono text-ink">evaluate_ai</span>.
-              The single clearest instructional expression of the doctrine
-              in the Group — see how it closes the loop with governance in{" "}
+              This is the same pattern the platform&rsquo;s{" "}
+              <span className="font-mono text-ink">evaluate_ai</span> interaction runs —
+              see how it closes the loop with governance in{" "}
               <a href="#interlock" className="underline decoration-terra decoration-2 underline-offset-2">
                 How They Interlock
               </a>

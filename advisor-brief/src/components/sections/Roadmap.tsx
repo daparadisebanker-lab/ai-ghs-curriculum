@@ -14,7 +14,7 @@ export function Roadmap() {
       index="06"
       label="The Roadmap"
       title="Three Horizons, five sprints, one gate."
-      dek="Mapped onto the engineering blueprint's own Sprint 1–5 sequence, using the Group's standing Three Horizons discipline. This is also the section a future team member should return to most often."
+      dek="Mapped onto the engineering blueprint's own Sprint 1–5 sequence, using a standing Three Horizons discipline. This is also the section a future team member should return to most often."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {horizons.map((h, i) => (
